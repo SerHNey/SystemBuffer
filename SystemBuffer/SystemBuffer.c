@@ -5,34 +5,34 @@
 
 void findnum(TCHAR* text) {
 	int i = 0;
+	TCHAR message[1024];
 	char* mess = calloc(100, sizeof(char));
-	//TCHAR* mess = calloc(512, sizeof(char));
 	while (text[i]) {
 		if (text[i] > 96 || text[i] < -1) {
 			return 1;
 		}
-		
-		if (text[i] == '1')
-			swprintf(mess, "%s%s",mess, L"Один");
-		if (text[i] == '2')
-			swprintf(mess, "%s%s", mess, L"Два");
-		if (text[i] == '3')
-			swprintf(mess, "%s%s", mess, L"Три");
-		if (text[i] == '4')
-			swprintf(mess, "%s%s", mess, L"Четыре");
-		if (text[i] == '5')
-			swprintf(mess, "%s%s", mess, L"Пять");
-		if (text[i] == '6')
-			swprintf(mess, "%s%s", mess, L"Шесть");
-		if (text[i] == '7')
-			swprintf(mess, "%s%s", mess, L"Семь");
-		if (text[i] == '8')
-			swprintf(mess, "%s%s", mess, L"Восемь");
-		if (text[i] == '9')
-			swprintf(mess, "%s%s", mess, L"Девять");
+		if (text[i] == 49)
+			sprintf(mess, "%s%s", mess, L"Один-");
+		if (text[i] == 50)
+			sprintf(mess, "%s%s", mess, L"Два-");
+		if (text[i] == 51)
+			sprintf(mess, "%s%s", mess, L"Три-");
+		if (text[i] == 52)
+			sprintf(mess, "%s%s", mess, L"Четыре-");
+		if (text[i] == 53)
+			sprintf(mess, "%s%s", mess, L"Пять-");
+		if (text[i] == 54)
+			sprintf(mess, "%s%s", mess, L"Шесть-");
+		if (text[i] == 55)
+			sprintf(mess, "%s%s", mess, L"Семь-");
+		if (text[i] == 56)
+			sprintf(mess, "%s%s", mess, L"Восемь-");
+		if (text[i] == 57)
+			sprintf(mess, "%s%s", mess, L"Девять-");
 		i++;
 	}
-	WriteBuffer(mess);
+	swprintf(message, sizeof(message), L"%s", mess);
+	WriteBuffer(message);
 }
 
 TCHAR* readBuffer() {
