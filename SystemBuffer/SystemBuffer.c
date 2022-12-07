@@ -12,23 +12,23 @@ void findnum(TCHAR* text) {
 			return 1;
 		}
 		if (text[i] == 49)
-			sprintf(mess, "%s%s", mess, L"Один-");
+			sprintf(mess, "%s%s", mess, L"Один");
 		if (text[i] == 50)
-			sprintf(mess, "%s%s", mess, L"Два-");
+			sprintf(mess, "%s%s", mess, L"Два");
 		if (text[i] == 51)
-			sprintf(mess, "%s%s", mess, L"Три-");
+			sprintf(mess, "%s%s", mess, L"Три");
 		if (text[i] == 52)
-			sprintf(mess, "%s%s", mess, L"Четыре-");
+			sprintf(mess, "%s%s", mess, L"Четыре");
 		if (text[i] == 53)
-			sprintf(mess, "%s%s", mess, L"Пять-");
+			sprintf(mess,  "%s%s", mess, L"Пять \r");
 		if (text[i] == 54)
-			sprintf(mess, "%s%s", mess, L"Шесть-");
+			sprintf(mess, "%s%s", mess, L"Шесть");
 		if (text[i] == 55)
-			sprintf(mess, "%s%s", mess, L"Семь-");
+			sprintf(mess, "%s%s", mess, L"Семь");
 		if (text[i] == 56)
-			sprintf(mess, "%s%s", mess, L"Восемь-");
+			sprintf(mess, "%s%s", mess, L"Восемь");
 		if (text[i] == 57)
-			sprintf(mess, "%s%s", mess, L"Девять-");
+			sprintf(mess, "%s%s", mess, L"Девять");
 		i++;
 	}
 	swprintf(message, sizeof(message), L"%s", mess);
