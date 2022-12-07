@@ -3,36 +3,36 @@
 #include <Windows.h>
 #include <strsafe.h>
 
-void findnum(LPSTR text) {
+void findnum(TCHAR* text) {
 	int i = 0;
+	char* mess = calloc(100, sizeof(char));
+	//TCHAR* mess = calloc(512, sizeof(char));
 	while (text[i]) {
-		i++;
 		if (text[i] > 96 || text[i] < -1) {
 			return 1;
 		}
-	}
-	i = 0;
-	while (text[i]) {
+		
 		if (text[i] == '1')
-			WriteBuffer(L"Один");
+			swprintf(mess, "%s%s",mess, L"Один");
 		if (text[i] == '2')
-			WriteBuffer(L"Два");
+			swprintf(mess, "%s%s", mess, L"Два");
 		if (text[i] == '3')
-			WriteBuffer(L"Три");
+			swprintf(mess, "%s%s", mess, L"Три");
 		if (text[i] == '4')
-			WriteBuffer(L"Четыре");
+			swprintf(mess, "%s%s", mess, L"Четыре");
 		if (text[i] == '5')
-			WriteBuffer(L"Пять");
+			swprintf(mess, "%s%s", mess, L"Пять");
 		if (text[i] == '6')
-			WriteBuffer(L"Шесть");
+			swprintf(mess, "%s%s", mess, L"Шесть");
 		if (text[i] == '7')
-			WriteBuffer(L"Семь");
+			swprintf(mess, "%s%s", mess, L"Семь");
 		if (text[i] == '8')
-			WriteBuffer(L"Восемь");
+			swprintf(mess, "%s%s", mess, L"Восемь");
 		if (text[i] == '9')
-			WriteBuffer(L"Девять");
+			swprintf(mess, "%s%s", mess, L"Девять");
 		i++;
 	}
+	WriteBuffer(mess);
 }
 
 TCHAR* readBuffer() {
@@ -60,8 +60,9 @@ int WriteBuffer(LPWSTR buffer) {
 
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR pCmdLine, int nCmdShow) {
-	while (1) {
-		LPSTR text = readBuffer();
+	int c = 1;
+	while (c) {
+		TCHAR* text = readBuffer();
 		LPSTR number;
 		TCHAR warning[] = L"Вы нарушили Авторские права, скопировав следующий текст: ";
 		TCHAR message[1024];
@@ -70,9 +71,9 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR pCmdLine
 			MessageBoxW(NULL, &message, L"Нарушение", MB_OK | MB_ICONWARNING);
 			WriteBuffer("");
 		}
-
 		findnum(text);
 		Sleep(1000);
+		c = 0;
 	}
 	return 0;
 }
